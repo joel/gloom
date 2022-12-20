@@ -64,7 +64,7 @@ RSpec.describe Gloom do
 
         expect(instance.errors.to_hash).to eql({ alpha: ["is invalid"] })
         expect(instance.errors.include?(:alpha)).to be true
-        expect(instance.errors.messages_for(:alpha)).to eql(["is invalid"])
+        expect(instance.errors.messages_for(:alpha)).to eql(["is invalid"]) if ActiveModel::VERSION::MAJOR >= 6
         expect(instance.errors.include?(:beta)).to be false
         expect(instance.errors.full_messages).to eql(["Alpha is invalid"])
 
