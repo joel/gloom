@@ -40,8 +40,8 @@ Gem::Specification.new do |spec|
 
   # spec.add_dependency "zeitwerk"
 
-  spec.add_dependency "activemodel", "5.2.8.1"
-  spec.add_dependency "activesupport", "5.2.8.1"
+  spec.add_dependency "activemodel", "~> 6.1"
+  spec.add_dependency "activesupport", "~> 6.1"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

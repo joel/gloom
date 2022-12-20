@@ -26,20 +26,26 @@ module Gloom
         #   public_send(column_name).nil?
         # end
 
+        internal_errors.copy!(errors) unless is_valid
+
         is_valid
       end
 
       def attribute_objects
-        @attribute_objects ||= _attribute_objects(errors = {})
+        @attribute_objects ||= _attribute_objects
+      end
+
+      def read_attribute_for_validation(attr)
+        source_row[self.class.column_names.index(attr)]
       end
 
       protected
 
-      def _attribute_objects(attributes_errors = {})
+      def _attribute_objects
         index = -1
 
         array_to_block_hash(self.class.column_names) do |column_name|
-          Attribute.new(column_name, source_row[index += 1], attributes_errors[column_name], self)
+          Attribute.new(column_name, source_row[index += 1], internal_errors.to_hash[column_name], self)
         end
       end
 
