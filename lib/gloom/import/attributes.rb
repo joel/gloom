@@ -22,10 +22,6 @@ module Gloom
         # the errors into the Attribute(s).
         instance_variable_set(:@attribute_objects, nil) unless is_valid
 
-        # self.column_names.any? do |column_name|
-        #   public_send(column_name).nil?
-        # end
-
         internal_errors.copy!(errors) unless is_valid
 
         is_valid
