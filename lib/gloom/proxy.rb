@@ -9,8 +9,8 @@ module Gloom
         @proxy ||= Module.new.tap { |mod| include mod }
       end
 
-      def define_proxy_method(*args, &)
-        proxy.send(:define_method, *args, &)
+      def define_proxy_method(*args, &block)
+        proxy.send(:define_method, *args, &block)
       end
     end
   end

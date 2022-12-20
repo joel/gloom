@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "gloom/attributes_base"
-# require "gloom/import/attribute"
+require "gloom/import/attribute"
 
 module Gloom
   module Import
@@ -14,8 +14,8 @@ module Gloom
         ensure_attribute_method
       end
 
-      def valid?(*_args)
-        is_valid = true # super
+      def valid?(*args)
+        is_valid = super
 
         # The method attribute_objects was called by the valid? method through
         # the attribute getters. The memoization must be cleared now to propagate

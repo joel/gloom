@@ -7,7 +7,7 @@ module Gloom
   module Import
     extend ActiveSupport::Concern
 
-    # include ActiveModel::Validations
+    include ActiveModel::Validations
 
     include Base
     include Attributes

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "gloom/import/attribute_base"
+require "gloom/attribute_base"
 
 module Gloom
   module Import

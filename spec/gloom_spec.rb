@@ -22,18 +22,22 @@ RSpec.describe Gloom do
     end
 
     context "with 1 validation" do
+      before do
+        klass.class_eval { validates :id, presence: true }
+      end
+
       it do
         expect(import_model_valid).to be true
       end
 
-      # context "with empty row" do
-      #   let(:source_row) { %w[] }
+      context "with empty row" do
+        let(:source_row) { %w[] }
 
-      #   it do
-      #     expect(import_model_valid).to be false
-      #     expect(instance.errors.full_messages).to eql ["Id can't be blank"]
-      #   end
-      # end
+        it do
+          expect(import_model_valid).to be false
+          expect(instance.errors.full_messages).to eql ["Id can't be blank"]
+        end
+      end
     end
   end
 end

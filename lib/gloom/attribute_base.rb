@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Gloom
-  module AttributeBase
+  class AttributeBase
     attr_reader :column_name, :row_model
 
     def initialize(column_name, row_model)
